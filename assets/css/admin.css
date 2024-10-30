@@ -1,0 +1,215 @@
+/**
+ * Admin styles
+ * @author Lex Lexter <hi@leximo.cz>
+ * @version 1.0.1
+ * @update 29.10.2022
+ * @website https://leximo.cz/
+ */
+
+.lbopt {
+  overflow: hidden;
+  margin: -10px -15px -20px -23px;
+  padding: 24px 32px;
+}
+
+/*
+  INPUT
+  ---
+*/
+
+.lbopt input, .lbopt textarea {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/*
+  CHEKCBOX
+  ...
+*/
+
+.lbopt input[type="checkbox"] {
+  float: left;
+  margin: 3px 0 0 -26px;
+}
+
+@media (max-width: 782px) {
+
+  .lbopt input[type="checkbox"] {
+    margin: 0 0 0 -32px;
+  }
+
+}
+
+/*
+  IMG
+  ---
+*/
+
+.lbopt img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+  field
+  ---
+*/
+
+.lbopt__field {
+  margin-bottom: 16px;
+}
+
+/*
+  - contain-checkbox
+  ...
+*/
+
+.lbopt__field--contain-checkbox {
+  padding-left: 26px;
+}
+
+@media (max-width: 782px) {
+
+  .lbopt__field--contain-checkbox {
+    padding-left: 32px;
+  }
+
+}
+
+/*
+  label
+  ...
+*/
+
+.lbopt__field__label {
+  display: inline-block;
+  margin-bottom: 6px;
+  line-height: 1.4;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/*
+  - contain-checkbox
+*/
+
+.lbopt__field--contain-checkbox .lbopt__field__label {
+  margin-bottom: 0;
+}
+
+/*
+  excerpt
+  ...
+*/
+
+.lbopt__field__excerpt {
+  display: block;
+  margin-top: 6px;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/*
+  preview
+  ...
+*/
+
+.lbopt__field__preview {
+  display: inline-block;
+  margin: 6px 4px 0 0;
+}
+
+/*
+  content
+  ---
+*/
+
+.lbopt__content {
+  display: block;
+}
+
+/*
+  adjust button
+  ...
+*/
+
+.lbopt__content .button {
+  margin: 6px 0 0 0;
+}
+
+/*
+  head
+  ---
+*/
+
+.lbopt__head {
+  margin-bottom: 28px;
+  padding: 4px 0 28px 54px;
+  border-bottom: 1px dashed #dadada;
+}
+
+@media (max-width: 550px) {
+
+  .lbopt__head {
+    padding-left: 0;
+    padding-top: 0;
+  }
+
+}
+
+
+/*
+  adjust button
+  ...
+*/
+
+.lbopt__head .button {
+  margin: 12px 8px 0 0;
+}
+
+/*
+  adjust notice
+  ...
+*/
+
+.lbopt__head .notice {
+  margin: 12px 0 0 0;
+}
+
+/*
+  logo
+  ...
+*/
+
+.lbopt__head__logo {
+  float: left;
+  display: block;
+  margin: -4px 0 0 -54px;
+}
+
+@media (max-width: 550px) {
+
+  .lbopt__head__logo {
+    float: none;
+    margin: 0 0 12px 0;
+  }
+
+}
+/*
+  title
+  ...
+*/
+
+.lbopt__head__title {
+  margin: 0;
+}
+
+/*
+  excerpt
+  ...
+*/
+
+.lbopt__head__excerpt {
+  margin: 6px 0 0 0;
+  font-style: italic;
+}

@@ -1,0 +1,1214 @@
+/**
+ * LexyBox
+ * @author Lex Lexter <hi@leximo.cz>
+ * @version 1.1.5
+ * @update 24.11.2022
+ * @website https://lexybox.leximo.cz/
+ */
+
+.lexybox-body {
+  overflow: hidden;
+}
+
+/*
+  lexybox
+  ***
+*/
+
+.lexybox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999999;
+  overflow: hidden;
+}
+
+/*
+  lexybox-content
+  ***
+*/
+
+.lexybox-content {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+/*
+  lexybox-track
+  ***
+*/
+
+.lexybox-track {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  font-size: 0;
+}
+
+/*
+  lexybox-item
+  ***
+*/
+
+.lexybox-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  white-space: normal;
+  font-size: 16px;
+}
+
+/*
+  - effect-vertical
+  ---
+*/
+
+.lexybox--effect.lexybox--effect-vertical .lexybox-item {
+  display: block;
+}
+
+/*
+  - effect-fade
+  ---
+*/
+
+.lexybox--effect.lexybox--effect-fade .lexybox-item {
+  position: absolute;
+  opacity: 0;
+}
+
+/* - active */
+
+.lexybox--effect.lexybox--effect-fade .lexybox-item--active {
+  z-index: 1;
+  opacity: 1;
+}
+
+/*
+  image
+  ***
+*/
+
+.lexybox-image {
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;  
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+  display: block;
+  margin: auto;
+}
+
+/*
+  iframe, video
+  ***
+*/
+
+.lexybox-iframe, .lexybox-video {
+  width: 1113px;
+  height: 640px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: block;
+}
+.lexybox-video {
+  object-fit: cover;
+  background-color: #000;
+}
+
+/*
+  lexybox-title
+  ***
+*/
+
+.lexybox-title {
+  position: relative;
+}
+
+/*
+  Empty
+  ---
+*/
+
+.lexybox-title:empty {
+  display: none;
+}
+
+/*
+  lexybox-count
+  ***
+*/
+
+.lexybox-count {
+  position: relative;
+}
+
+/*
+  lexybox-control
+  ***
+*/
+
+.lexybox-control {
+  position: relative;
+}
+
+/*
+  lexybox-pager
+  ***
+*/
+
+.lexybox-pager {
+  position: relative;
+}
+
+/**
+ *******
+ * THEME
+ *******
+ */
+
+/*
+  lexybox
+  ***
+*/
+
+.lexybox--theme {
+  background-color: #382c2c;
+  color: #fff;
+  opacity: 0;
+  -webkit-transition: opacity 250ms linear;
+  -o-transition: opacity 250ms linear;
+  transition: opacity 250ms linear;
+}
+
+/*
+  - theme
+  ---
+*/
+
+.lexybox--theme.lexybox--theme-light {
+  background-color: #fff;
+  color: #382c2c;
+}
+.lexybox--theme.lexybox--theme-classic {
+  background-color: #121212;
+  color: #E8E8E8;
+}
+
+/*
+  - visible
+  ---
+*/
+
+.lexybox--theme.lexybox--visible {
+  opacity: 1;
+}
+
+/*
+  Scrollbars
+  ***
+*/
+
+.lexybox--theme ::-webkit-scrollbar {
+  width: 10px;
+  overflow: overlay;
+}
+
+/*
+  track
+  ---
+*/
+
+.lexybox--theme ::-webkit-scrollbar-track {
+  background: #241C1C;
+}
+
+/*
+  - theme-light
+  ...
+*/
+
+.lexybox--theme.lexybox--theme-light ::-webkit-scrollbar-track {
+  background-color: #e9e9e9;
+}
+.lexybox--theme.lexybox--theme-classic ::-webkit-scrollbar-track {
+  background-color: #040404;
+}
+
+/*
+  thumb
+  ---
+*/
+
+.lexybox--theme ::-webkit-scrollbar-thumb {
+  background: #675353;
+}
+
+/*
+  - theme
+  ...
+*/
+
+.lexybox--theme.lexybox--theme-light ::-webkit-scrollbar-thumb {
+  background-color: #DBDBDB;
+}
+.lexybox--theme.lexybox--theme-classic ::-webkit-scrollbar-thumb {
+  background-color: #3D3D3D;
+}
+
+/*
+  lexybox-window
+  ***
+*/
+
+.lexybox--theme .lexybox-window {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  -webkit-transition: left 250ms ease-in-out;
+  -o-transition: left 250ms ease-in-out;
+  transition: left 250ms ease-in-out;
+}
+
+/*
+  - pager
+  ---
+*/
+
+.lexybox--theme.lexybox--pager .lexybox-window {
+  left: 220px;
+}
+
+@media (max-width: 752px) {
+
+  .lexybox--theme.lexybox--pager .lexybox-window {
+    left: 0;
+  }
+
+}
+
+/*
+  Loader
+  ---
+*/
+
+.lexybox--theme .lexybox-window:before {
+  content: '';
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -18px 0 0 -18px;
+  background: url('../img/loaders/dark.gif') center center no-repeat;
+  opacity: 0;
+  -webkit-transition: opacity 250ms linear;
+  -o-transition: opacity 250ms linear;
+  transition: opacity 250ms linear;
+}
+
+/*
+  - loading
+  ...
+*/
+
+.lexybox--theme.lexybox--loading .lexybox-window:before {
+  opacity: 1;
+}
+
+/*
+  - theme
+  ---
+*/
+
+.lexybox--theme.lexybox--theme-light .lexybox-window:before {
+  background-image: url('../img/loaders/light.gif');
+}
+.lexybox--theme.lexybox--theme-classic .lexybox-window:before {
+  background-image: url('../img/loaders/classic.gif');
+}
+
+/*
+  lexybox-content
+  ***
+*/
+
+.lexybox--theme .lexybox-content {
+  bottom: 80px;
+  -webkit-animation: 820ms cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+          animation: 820ms cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@media (max-width: 752px) {
+
+  .lexybox--theme .lexybox-content {
+    bottom: 70px;
+  }
+
+}
+
+/* 
+  - shake
+  ---
+*/
+
+.lexybox--theme.lexybox--effect.lexybox--effect-horizontal.lexybox--shake .lexybox-content {
+  -webkit-animation-name: lexybox-shake-x;
+          animation-name: lexybox-shake-x;
+}
+.lexybox--theme.lexybox--effect.lexybox--effect-vertical.lexybox--shake .lexybox-content {
+  -webkit-animation-name: lexybox-shake-y;
+          animation-name: lexybox-shake-y;
+}
+.lexybox--theme.lexybox--effect.lexybox--effect-fade.lexybox--shake .lexybox-content {
+  -webkit-animation-name: lexybox-shake-x;
+          animation-name: lexybox-shake-x;
+}
+
+/*
+  - mode-single
+  ---
+*/
+
+.lexybox--theme.lexybox--mode-single .lexybox-content {
+  bottom: 0;
+}
+
+/*
+  lexybox-track
+  ***
+*/
+
+.lexybox--theme .lexybox-track {
+  font-size: 0;
+  -webkit-transition: -webkit-transform 350ms ease-in-out;
+  transition: -webkit-transform 350ms ease-in-out;
+  -o-transition: transform 350ms ease-in-out;
+  transition: transform 350ms ease-in-out;
+  transition: transform 350ms ease-in-out, -webkit-transform 350ms ease-in-out;
+}
+
+/*
+  lexybox-item
+  ***
+*/
+
+.lexybox--theme .lexybox-item {
+  /* NOPE */
+}
+
+/*
+  - effect-vertical
+  ---
+*/
+
+.lexybox--theme.lexybox--effect.lexybox--effect-vertical .lexybox-item {
+  display: block;
+}
+
+/*
+  - effect-fade
+  ---
+*/
+
+.lexybox--theme.lexybox--effect.lexybox--effect-fade .lexybox-item {
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: opacity 250ms linear;
+  -o-transition: opacity 250ms linear;
+  transition: opacity 250ms linear;
+}
+
+/* - active */
+
+.lexybox--theme.lexybox--effect.lexybox--effect-fade .lexybox-item--active {
+  opacity: 1;
+}
+
+/*
+  image, iframe, video
+  ---
+*/
+
+.lexybox--theme .lexybox-image, .lexybox--theme .lexybox-iframe, .lexybox--theme .lexybox-video {
+  border: none;
+  border-radius: 0;
+}
+
+@media (max-width: 1250px) {
+
+  .lexybox--theme .lexybox-iframe, .lexybox--theme .lexybox-video {
+    width: calc(100% - 200px);
+    height: calc(100% - 200px);
+    left: 100px;
+    top: 100px;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
+
+}
+
+@media (max-width: 752px) {
+
+  .lexybox--theme .lexybox-iframe, .lexybox--theme .lexybox-video {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+}
+
+/*
+  title
+  ***
+*/
+
+.lexybox--theme .lexybox-title {
+  position: absolute;
+  left: 28px;
+  top: 24px;
+  z-index: 10;
+  overflow: hidden;
+  display: block;
+  padding: 12px 16px 13px 16px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 6px;
+  text-align: center;
+  font: 400 15px 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif; 
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+}
+
+@media (max-width: 752px) {
+
+  .lexybox--theme .lexybox-title {
+    left: 0;
+    top: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+}
+
+/*
+  Empty
+  ---
+*/
+
+.lexybox--theme .lexybox-title:empty {
+  display: none;
+}
+
+/*
+  - theme-light
+  ---
+*/
+
+.lexybox--theme.lexybox--theme-light .lexybox-title {
+  background-color: rgba(204, 204, 204, 0.7);
+}
+
+/*
+  count
+  ***
+*/
+
+.lexybox--theme .lexybox-count {
+  width: 80px;
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  z-index: 10;
+  -webkit-transform: rotate(0.03deg);
+      -ms-transform: rotate(0.03deg);
+          transform: rotate(0.03deg);
+  margin-left: -40px;
+  text-align: center;
+  font: 400 16px 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+}
+
+@media (max-width: 752px) {
+
+  .lexybox--theme .lexybox-count {
+    width: 84px;
+    left: 0;
+    bottom: 24px;
+    margin-left: 0;
+    font-size: 16px;
+  }
+
+}
+
+/*
+  - theme-light
+  ---
+*/
+
+.lexybox--theme.lexybox--theme-light .lexybox-count {
+  color: #382c2c;
+}
+
+/*
+  sep
+  ---
+*/
+
+.lexybox--theme .lexybox-count__sep {
+  width: 1px;
+  height: 8px;
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: rotate(24deg);
+      -ms-transform: rotate(24deg);
+          transform: rotate(24deg);
+  margin: 0 8px;
+  background-color: #fff;
+  opacity: 0.4;
+}
+
+/*
+  - theme
+  ...
+*/
+
+.lexybox--theme.lexybox--theme-light .lexybox-count__sep {
+  background-color: #000;
+}
+
+/*
+  control
+  ***
+*/
+
+.lexybox--theme .lexybox-control {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  z-index: 10;
+  display: inline-block;
+  border: 2px solid #C3BFBF;
+  border-radius: 50%;
+  outline: none;
+  font-size: 0;
+  -webkit-transition: opacity 150ms linear;
+  -o-transition: opacity 150ms linear;
+  transition: opacity 150ms linear;
+}
+.lexybox--theme .lexybox-control:before,
+.lexybox--theme .lexybox-control:after {
+  content: '';
+  height: 2px;
+  position: absolute;
+  background-color: #C3BFBF;
+}
+
+@media (max-width: 752px) {
+
+  .lexybox--theme .lexybox-control--prev, .lexybox--theme .lexybox-control--next, .lexybox--theme .lexybox-control--close {
+    bottom: 16px;
+  }
+
+}
+
+/* - disabled */
+
+.lexybox--theme .lexybox-control--disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+/* hover */
+
+.lexybox--theme .lexybox-control:hover:not(.lexybox-control--disabled) {
+  opacity: 0.6;
+}
+
+/*
+  - theme
+  ---
+*/
+
+.lexybox--theme.lexybox--theme-light .lexybox-control {
+  border-color: #A8A2A2;
+}
+.lexybox--theme.lexybox--theme-light .lexybox-control:before,
+.lexybox--theme.lexybox--theme-light .lexybox-control:after {
+  background-color: #A8A2A2;
+}
+.lexybox--theme.lexybox--theme-classic .lexybox-control {
+  border-color: #6C6C6C;
+}
+.lexybox--theme.lexybox--theme-classic .lexybox-control:before,
+.lexybox--theme.lexybox--theme-classic .lexybox-control:after {
+  background-color: #6C6C6C;
+}
+
+/*
+  - prev
+  ---
+*/
+
+.lexybox--theme .lexybox-control--prev {
+  right: 50%;
+  bottom: 24px;
+  margin-right: 50px;
+}
+
+@media (max-width: 752px) {
+
+  .lexybox--theme .lexybox-control--prev {
+    left: 88px;
+    bottom: 16px;
+    right: auto;
+    margin-right: 0;
+  }
+
+}
+/*
+  - effect-vertical
+  ---
+*/
+
+.lexybox--theme.lexybox--effect.lexybox--effect-vertical .lexybox-control--prev {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+
+/*
+  Decorations
+  ...
+*/
+
+.lexybox--theme .lexybox-control--prev:before,
+.lexybox--theme .lexybox-control--prev:after {
+  width: 20%;
+  left: 42%;
+  top: 48%;
+}
+.lexybox--theme .lexybox-control--prev:before {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transform-origin: left bottom;
+      -ms-transform-origin: left bottom;
+          transform-origin: left bottom;
+}
+.lexybox--theme .lexybox-control--prev:after {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transform-origin: left top;
+      -ms-transform-origin: left top;
+          transform-origin: left top;
+}
+
+/*
+  - next
+  ---
+*/
+
+.lexybox--theme .lexybox-control--next {
+  left: 50%;
+  bottom: 24px;
+  margin-left: 50px;
+}
+
+@media (max-width: 752px) {
+
+  .lexybox--theme .lexybox-control--next {
+    left: 138px;
+    bottom: 16px;
+    margin-left: 0;
+  }
+
+}
+
+/*
+  - effect-vertical
+  ---
+*/
+
+.lexybox--theme.lexybox--effect-vertical .lexybox-control--next {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+/*
+  Decorations
+  ...
+*/
+
+.lexybox--theme .lexybox-control--next:before,
+.lexybox--theme .lexybox-control--next:after {
+  width: 20%;
+  right: 42%;
+  top: 48%;
+}
+.lexybox--theme .lexybox-control--next:before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transform-origin: right bottom;
+      -ms-transform-origin: right bottom;
+          transform-origin: right bottom;
+}
+.lexybox--theme .lexybox-control--next:after {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transform-origin: right top;
+      -ms-transform-origin: right top;
+          transform-origin: right top;
+}
+
+/*
+  - close
+  ---
+*/
+
+.lexybox--theme .lexybox-control--close {
+  right: 24px;
+  top: 24px;
+}
+
+@media (max-width: 752px) {
+
+  .lexybox--theme .lexybox-control--close {
+    top: auto;
+    right: 16px;
+    bottom: 16px;
+  }
+
+}
+
+/*
+  Decorations
+  ...
+*/
+
+.lexybox--theme .lexybox-control--close:before,
+.lexybox--theme .lexybox-control--close:after {
+  width: 40%;
+  left: 30%;
+  top: 48%;
+  -webkit-transform-origin: center center;
+      -ms-transform-origin: center center;
+          transform-origin: center center;
+}
+.lexybox--theme .lexybox-control--close:before {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.lexybox--theme .lexybox-control--close:after {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+/*
+  - grid
+  ---
+*/
+
+.lexybox--theme .lexybox-control--grid {
+  right: 24px;
+  top: 72px;
+}
+
+@media (max-width: 752px) {
+
+  .lexybox--theme .lexybox-control--grid {
+    top: auto;
+    right: 66px;
+    bottom: 16px;
+  }
+
+}
+
+/*
+  Decorations
+  ...
+*/
+
+.lexybox--theme .lexybox-control--grid:before,
+.lexybox--theme .lexybox-control--grid:after {
+  width: 40%;
+  left: 29%;
+}
+.lexybox--theme .lexybox-control--grid:before {
+  top: 40%;
+}
+.lexybox--theme .lexybox-control--grid:after {
+  top: 54%;
+}
+
+/*
+  - autoplay
+  ---
+*/
+
+.lexybox--theme .lexybox-control--play {
+  right: 24px;
+  top: 120px;
+}
+
+@media (max-width: 752px) {
+
+  .lexybox--theme .lexybox-control--play {
+    top: auto;
+    right: 116px;
+    bottom: 16px;
+  }
+
+}
+
+/*
+  Decorations
+  ...
+*/
+
+.lexybox--theme .lexybox-control--play:before,
+.lexybox--theme .lexybox-control--play:after {
+  width: 20%;
+  right: 44%;
+  top: 48%;
+}
+.lexybox--theme .lexybox-control--play:before {
+  transform: rotate(54deg);
+  transform-origin: right bottom;
+}
+.lexybox--theme .lexybox-control--play:after {
+  transform: rotate(-54deg);
+  transform-origin: right top;
+}
+
+/* - playing */
+
+.lexybox--theme.lexybox--playing .lexybox-control--play:before,
+.lexybox--theme.lexybox--playing .lexybox-control--play:after {
+  width: 2px;
+  height: 32%;
+  top: 33%;
+  transform: rotate(0);
+  transform-origin: center center;
+}
+.lexybox--theme.lexybox--playing .lexybox-control--play:before {
+  right: 42%;
+}
+.lexybox--theme.lexybox--playing .lexybox-control--play:after {
+  right: 55%;
+}
+
+
+/*
+  lexybox-page
+  ***
+*/
+
+.lexybox--theme .lexybox-page {
+  width: 160px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto 20px auto;
+  background: center center no-repeat;
+  background-color: #241C1C;
+  background-size: cover;
+  text-decoration: none;
+  color: #fff;
+  -webkit-transition: opacity 150ms linear;
+  -o-transition: opacity 150ms linear;
+  transition: opacity 150ms linear;
+}
+
+@media (max-width: 400px) {
+
+  .lexybox--theme .lexybox-page {
+    width: 160px;
+  }
+
+}
+
+/* hover */
+
+.lexybox--theme .lexybox-page:hover {
+  opacity: 0.6;
+}
+
+/*
+  - theme
+  ---
+*/
+
+.lexybox--theme.lexybox--theme-light .lexybox-page {
+  background-color: #DBDBDB;
+}
+.lexybox--theme.lexybox--theme-classic .lexybox-page {
+  background-color: #1f1f1f;
+}
+
+/*
+  First
+  ---
+*/
+
+.lexybox--theme .lexybox-page:first-child {
+  margin-top: 20px;
+}
+
+/*
+  num
+  ---
+*/
+
+.lexybox--theme .lexybox-page__num {
+  display: inline-block;
+  margin: 16px;
+  padding: 3px 5px 2px 5px;
+  background-color: #382c2c;
+  font: 400 12px 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+  -webkit-transition: 150ms linear;
+  -o-transition: 150ms linear;
+  transition: 150ms linear;
+}
+
+/* - active */
+
+.lexybox--theme .lexybox-page--active .lexybox-page__num {
+  background-color: #C5B3B3;
+  color: #382c2c;
+}
+
+/*
+  - theme
+  ---
+*/
+
+.lexybox--theme.lexybox--theme-light .lexybox-page__num {
+  background-color: #DBDBDB;
+  color: #333;
+}
+.lexybox--theme.lexybox--theme-classic .lexybox-page__num {
+  background-color: #1f1f1f;
+}
+
+/* - active */
+
+.lexybox--theme.lexybox--theme-light .lexybox-page--active .lexybox-page__num {
+  background-color: #fff;
+}
+.lexybox--theme.lexybox--theme-classic .lexybox-page--active .lexybox-page__num {
+  background-color: #D7D7D7;
+}
+
+/*
+  title
+  ---
+*/
+
+.lexybox--theme .lexybox-page__title {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  padding: 12px 16px;
+  background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.64) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)),to(rgba(0,0,0,0.64)));
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.64) 100%);
+  white-space: nowrap;
+  font: 400 12px 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+}
+
+/*
+  lexybox-pager
+  ***
+*/
+
+.lexybox--theme .lexybox-pager {
+  width: 220px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  -webkit-transform: translateX(-220px);
+      -ms-transform: translateX(-220px);
+          transform: translateX(-220px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #2D2323;
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  -o-transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+@media (max-width: 400px) {
+
+  .lexybox--theme .lexybox-pager {
+    width: 200px;
+    -webkit-box-shadow: 0 0 64px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 64px rgba(0, 0, 0, 0.4);
+  }
+
+}
+
+/* - pager */
+
+@media (max-width: 752px) {
+
+  .lexybox--theme.lexybox--pager .lexybox-pager {
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+
+  }
+
+}
+
+/*
+  - theme
+  ---
+*/
+
+.lexybox--theme.lexybox--theme-light .lexybox-pager {
+  background-color: #F4F4F4;
+}
+.lexybox--theme.lexybox--theme-classic .lexybox-pager {
+  background-color: #0C0C0C;
+}
+
+
+@media (max-width: 400px) {
+
+  .lexybox--theme.lexybox--theme-light .lexybox-pager {
+    -webkit-box-shadow: 0 0 64px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 64px rgba(0, 0, 0, 0.1);
+  }
+
+}
+
+/*
+  ANIMATIONS
+  ---
+*/
+
+@-webkit-keyframes lexybox-shake-x {
+
+  10%, 90% {
+    -webkit-transform: translate(-4px, 0);
+            transform: translate(-4px, 0);
+  }
+  20%, 80% {
+    -webkit-transform: translate(4px, 0);
+            transform: translate(4px, 0);
+  }
+  30%, 50%, 70% {
+    -webkit-transform: translate(-4px, 0);
+            transform: translate(-4px, 0);
+  }
+  40%, 60% {
+    -webkit-transform: translate(4px, 0);
+            transform: translate(4px, 0);
+  }
+
+}
+
+@keyframes lexybox-shake-x {
+
+  10%, 90% {
+    -webkit-transform: translate(-4px, 0);
+            transform: translate(-4px, 0);
+  }
+  20%, 80% {
+    -webkit-transform: translate(4px, 0);
+            transform: translate(4px, 0);
+  }
+  30%, 50%, 70% {
+    -webkit-transform: translate(-4px, 0);
+            transform: translate(-4px, 0);
+  }
+  40%, 60% {
+    -webkit-transform: translate(4px, 0);
+            transform: translate(4px, 0);
+  }
+
+}
+
+@-webkit-keyframes lexybox-shake-y {
+
+  10%, 90% {
+    -webkit-transform: translate(0, -4px);
+            transform: translate(0, -4px);
+  }
+  20%, 80% {
+    -webkit-transform: translate(0, 4px);
+            transform: translate(0, 4px);
+  }
+  30%, 50%, 70% {
+    -webkit-transform: translate(0, -4px);
+            transform: translate(0, -4px);
+  }
+  40%, 60% {
+    -webkit-transform: translate(0, 4px);
+            transform: translate(0, 4px);
+  }
+
+}
+
+@keyframes lexybox-shake-y {
+
+  10%, 90% {
+    -webkit-transform: translate(0, -4px);
+            transform: translate(0, -4px);
+  }
+  20%, 80% {
+    -webkit-transform: translate(0, 4px);
+            transform: translate(0, 4px);
+  }
+  30%, 50%, 70% {
+    -webkit-transform: translate(0, -4px);
+            transform: translate(0, -4px);
+  }
+  40%, 60% {
+    -webkit-transform: translate(0, 4px);
+            transform: translate(0, 4px);
+  }
+
+}
